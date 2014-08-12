@@ -77,6 +77,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="ambientshader.fs" />
+    <None Include="ambientshader.vs" />
+    <None Include="blinn-Flat.fs" />
+    <None Include="blinn-Flat.vs" />
+    <None Include="blinn-gouraud.fs" />
+    <None Include="blinn-gouraud.vs" />
+    <None Include="blinn-phong.fs" />
+    <None Include="blinn-phong.vs" />
+    <None Include="cook-flat.fs" />
+    <None Include="cook-flat.vs" />
+    <None Include="cook-gouraud.fs" />
+    <None Include="cook-gouraud.vs" />
+    <None Include="cook-phong.fs" />
+    <None Include="cook-phong.vs" />
+    <None Include="Phong-Flat.fs" />
+    <None Include="Phong-Flat.vs" />
+    <None Include="phong-gouraud.fs" />
+    <None Include="phong-gouraud.vs" />
+    <None Include="phong-phong.fs" />
+    <None Include="phong-phong.vs" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

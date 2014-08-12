@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ﻿Compilación iniciada a las 06/08/2014 08:48:48 p.m..
      1>Proyecto "C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
+=======
+﻿Compilación iniciada a las 09/08/2014 01:52:01 p.m..
+     1>Proyecto "C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
+>>>>>>> origin/master
      1>InitializeBuildStatus:
          Se creará "Release\proyecto1grafica2v2.unsuccessfulbuild" porque se especificó "AlwaysCreate".
        ClCompile:
@@ -40,4 +45,8 @@
 
 ERROR al compilar.
 
+<<<<<<< HEAD
 Tiempo transcurrido 00:00:00.22
+=======
+Tiempo transcurrido 00:00:04.43
+>>>>>>> origin/master

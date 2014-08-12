@@ -16,6 +16,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="phong-gouraud.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="ambientshader.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-Flat.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-gouraud.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-phong.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-flat.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-gouraud.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-phong.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Phong-Flat.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="phong-phong.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="ambientshader.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-Flat.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-gouraud.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="blinn-phong.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-flat.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-gouraud.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="cook-phong.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Phong-Flat.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="phong-gouraud.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="phong-phong.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
