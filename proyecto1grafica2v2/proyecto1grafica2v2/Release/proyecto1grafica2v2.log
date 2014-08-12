@@ -1,17 +1,43 @@
-﻿Compilación iniciada a las 06/08/2014 06:39:34 p.m..
-     1>Proyecto "C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
+﻿Compilación iniciada a las 06/08/2014 08:48:48 p.m..
+     1>Proyecto "C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
      1>InitializeBuildStatus:
          Se creará "Release\proyecto1grafica2v2.unsuccessfulbuild" porque se especificó "AlwaysCreate".
        ClCompile:
          Todas las salidas están actualizadas.
        Link:
          Todas las salidas están actualizadas.
-         proyecto1grafica2v2.vcxproj -> C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe
-       FinalizeBuildStatus:
-         Se eliminará el archivo "Release\proyecto1grafica2v2.unsuccessfulbuild".
-         Aplicando tarea Touch a "Release\proyecto1grafica2v2.lastbuildstate".
-     1>Compilación del proyecto terminada "C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" (build destinos).
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Rodolfo\Documents\Visual Studio 2010\Projects\TutorialOpenGL\stuff\glew-1.10.0\lib\Release\x64" /LIBPATH:C:\Users\Rodolfo\Downloads\AntTweakBar_116\AntTweakBar\lib /LIBPATH:"C:\Users\Rodolfo\Downloads\freeglut-MSVC-2.8.1-1.mp\freeglut\lib" glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\proyecto1grafica2v2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.lib" /MACHINE:X86 Release\proyecto1grafica2v2.obj
+         Release\stdafx.obj
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewBindBuffer sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewVertexAttribPointer sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewCreateShader sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetShaderInfoLog sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp__glewInit@0 sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewLinkProgram sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewCompileShader sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUseProgram sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewShaderSource sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetBufferParameteriv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewBufferData sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUniform4fv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp__glewGetErrorString@4 sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetAttribLocation sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUniformMatrix4fv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUniform1f sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUniformMatrix3fv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGenBuffers sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewDisableVertexAttribArray sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetProgramiv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewUniform3fv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetShaderiv sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetProgramInfoLog sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewCreateProgram sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewEnableVertexAttribArray sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewAttachShader sin resolver
+     1>proyecto1grafica2v2.obj : error LNK2001: símbolo externo __imp____glewGetUniformLocation sin resolver
+     1>C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe : fatal error LNK1120: 27 externos sin resolver
+     1>Compilación del proyecto terminada "C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" (build destinos) -- ERROR.
 
-Compilación correcta.
+ERROR al compilar.
 
-Tiempo transcurrido 00:00:00.08
+Tiempo transcurrido 00:00:00.22
