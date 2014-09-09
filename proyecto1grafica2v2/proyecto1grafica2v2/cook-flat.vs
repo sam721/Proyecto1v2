@@ -93,7 +93,7 @@ void main(void){
 			L = -lights[i].direction;
 		}
 		vec3 N = normalize(normalmatrix*normal);
-		if(lights[i].type==2){
+		if(LightType[i]==2){
 			float LdotD = dot(-L, normalize(mat3(v)*lights[i].spotDirection));
 			if(max(0.0, LdotD)<cos(2*pi*lights[i].spotCutOff/360.0)) att = 0.0;
 			else att = att*pow(max(0.0, LdotD), lights[i].spotExponent);
@@ -104,6 +104,7 @@ void main(void){
 		if(length(V)!=0) V = normalize(V);
 		vec3 H = L+V;
 		if(length(H)!=0) H = normalize(H);
+		color = Ambient+Diffuse;
 		float F, D, G;
 		float NdotV, NdotH, VdotH, LdotH;
 		NdotV = dot(N,V); NdotH = dot(N,H);  VdotH = dot(V,H); LdotH = dot(L,H);
@@ -119,7 +120,7 @@ void main(void){
 			G = geometric_att(NdotH, NdotV, NdotL, VdotH, LdotH);
 			rs = att*F*D*G/(NdotV*NdotL*3.14);
 		}
-		color +=  Ambient + NdotL*(spec*rs*pow(max(0.0,RdotV),mymaterial.shininess)+att*Diffuse);
+		color +=  Ambient + NdotL*(spec*rs*pow(max(0.0,RdotV),mymaterial.shininess)+Diffuse);
 	}
 	gl_Position = p*v*m*vec4(coord3d,1.0);
 }

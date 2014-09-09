@@ -1,17 +1,84 @@
-﻿Compilación iniciada a las 09/08/2014 01:52:01 p.m..
-     1>Proyecto "C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
+﻿Compilación iniciada a las 15/08/2014 08:01:29 p.m..
+     1>Proyecto "C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" en el nodo 2 (build destinos).
      1>InitializeBuildStatus:
          Se creará "Release\proyecto1grafica2v2.unsuccessfulbuild" porque se especificó "AlwaysCreate".
        ClCompile:
-         Todas las salidas están actualizadas.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Rodolfo\Documents\Visual Studio 2010\Projects\TutorialOpenGL\stuff\glm" /I"C:\Users\Rodolfo\Documents\Visual Studio 2010\Projects\TutorialOpenGL\stuff\glew-1.10.0\include" /IC:\Users\Rodolfo\Downloads\AntTweakBar_116\AntTweakBar\include /I"C:\Users\Rodolfo\Downloads\freeglut-MSVC-2.8.1-1.mp\freeglut\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt proyecto1grafica2v2.cpp
+         proyecto1grafica2v2.cpp
+     1>c:\users\rodolfo\documents\github\proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\FileLoader.h(6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : vea la declaración de 'fopen'
+     1>proyecto1grafica2v2.cpp(49): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(49): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(49): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(50): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(50): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(50): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(51): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(51): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(51): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(52): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(52): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(52): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(54): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(54): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(54): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(55): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(55): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(55): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(56): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(56): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(56): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(57): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(57): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(57): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>proyecto1grafica2v2.cpp(184): warning C4101: 'type' : variable local sin referencia
+     1>proyecto1grafica2v2.cpp(254): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : vea la declaración de 'fopen'
+     1>proyecto1grafica2v2.cpp(255): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(253) : vea la declaración de 'fscanf'
+     1>proyecto1grafica2v2.cpp(258): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(253) : vea la declaración de 'fscanf'
+     1>proyecto1grafica2v2.cpp(262): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(253) : vea la declaración de 'fscanf'
+     1>proyecto1grafica2v2.cpp(265): warning C4244: 'argumento' : conversión de 'double' a 'int'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(270): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(253) : vea la declaración de 'fscanf'
+     1>proyecto1grafica2v2.cpp(560): warning C4018: '<' : no coinciden signed/unsigned
+     1>proyecto1grafica2v2.cpp(641): warning C4018: '<' : no coinciden signed/unsigned
+     1>proyecto1grafica2v2.cpp(782): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>proyecto1grafica2v2.cpp(782): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>proyecto1grafica2v2.cpp(784): warning C4305: '-=' : truncamiento de 'double' a 'float'
+     1>proyecto1grafica2v2.cpp(784): warning C4305: '-=' : truncamiento de 'double' a 'float'
+     1>proyecto1grafica2v2.cpp(813): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(813): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(813): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(814): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(814): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(814): warning C4244: '-=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(816): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(816): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(816): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(817): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(817): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(817): warning C4244: '+=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(848): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(849): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>proyecto1grafica2v2.cpp(863): warning C4018: '<' : no coinciden signed/unsigned
+         GLM: perspective function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.
+         GLM: rotate function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.
        Link:
-         Todas las salidas están actualizadas.
-         proyecto1grafica2v2.vcxproj -> C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\Rodolfo\Downloads\AntTweakBar_116\AntTweakBar\lib /LIBPATH:"C:\Users\Rodolfo\Downloads\freeglut-MSVC-2.8.1-1.mp\freeglut\lib" /LIBPATH:"C:\Users\Rodolfo\Documents\Visual Studio 2010\Projects\TutorialOpenGL\stuff\glew-1.10.0\lib\Release\Win32" glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\proyecto1grafica2v2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.lib" /MACHINE:X86 Release\proyecto1grafica2v2.obj
+         Release\stdafx.obj
+         Generando código
+         Generación de código finalizada
+         proyecto1grafica2v2.vcxproj -> C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\Release\proyecto1grafica2v2.exe;#1" /manifest Release\proyecto1grafica2v2.exe.intermediate.manifest
        FinalizeBuildStatus:
          Se eliminará el archivo "Release\proyecto1grafica2v2.unsuccessfulbuild".
          Aplicando tarea Touch a "Release\proyecto1grafica2v2.lastbuildstate".
-     1>Compilación del proyecto terminada "C:\Users\Samuel\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" (build destinos).
+     1>Compilación del proyecto terminada "C:\Users\Rodolfo\Documents\GitHub\Proyecto1v2\proyecto1grafica2v2\proyecto1grafica2v2\proyecto1grafica2v2.vcxproj" (build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:04.43
+Tiempo transcurrido 00:00:08.22
