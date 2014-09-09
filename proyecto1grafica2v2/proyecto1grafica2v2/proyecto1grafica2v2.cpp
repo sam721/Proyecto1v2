@@ -44,6 +44,9 @@ GLuint uniform_inverse_mv;
 GLuint vbo_light_vertices, ibo_light_elements;
 char buf[100010];
 const int LMAX = 3;
+pair<int,int> click;
+bool pick;
+i8vec3 obj_id_colors[12];
 GLfloat light_vertices[] = {
     // front
     -0.05, -0.05,  0.05,
@@ -383,6 +386,49 @@ object_3d selected;
 int light_model, shading_model;
 GLuint sh_ptrs[10][10];
 vec4 white = vec4(1.0, 1.0, 1.0, 1.0);
+void draw_obj_picking(object_3d &obj, int picki){
+	GLuint program = ambientshader;
+	glUseProgram(program);
+	mat4 model, view, projection;
+	model = translate(mat4(1.0), obj.trans);
+	model = translate(model, vec3(0.0,0.0,-4.0f));
+	model = model*toMat4(obj.q);
+	model = scale(model, vec3(obj.scale));
+	model = scale(model, vec3(2.0));
+	model = scale(model, vec3(1/obj.max_norm));
+	model = translate(model, -obj.centroid);
+	view = lookAt(camera_pos, camera_center, vec3(0.0, 1.0, 0.0));
+	projection = perspective(45.0f, 1.0f*s_width/s_height, 1.0f, 30.0f);
+	GLint uniform_amb = glGetUniformLocation(program, "lightAmbient");
+	uniform_m = glGetUniformLocation(program, "m");
+	uniform_v = glGetUniformLocation(program, "v");
+	uniform_p = glGetUniformLocation(program, "p");
+	attribute_coord3d = glGetAttribLocation(program, "coord3d");
+	if(uniform_amb==-1) printf("FAIL 1\n");
+	if(attribute_coord3d==-1) printf("FAIL 2\n");
+	glUniformMatrix4fv(uniform_m, 1, GL_FALSE, value_ptr(model));
+	glUniformMatrix4fv(uniform_v, 1, GL_FALSE, value_ptr(view));
+	glUniformMatrix4fv(uniform_p, 1, GL_FALSE, value_ptr(projection));
+	glUniform4f(uniform_amb, obj_id_colors[picki].x/255.0f, obj_id_colors[picki].y/255.0f, obj_id_colors[picki].z/255.0f, 1.0f);
+	glBindBuffer(GL_ARRAY_BUFFER, obj.vbov);
+	glEnableVertexAttribArray(attribute_coord3d);
+	glVertexAttribPointer(
+		attribute_coord3d,
+		3,
+		GL_FLOAT,
+		GL_FALSE,
+		0,
+		0
+		);
+	int size;
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, obj.ibo);
+	glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &size);
+	glDrawElements(GL_TRIANGLES, size/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
+	glDisableVertexAttribArray(attribute_coord3d);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+}
+
 void draw_obj(object_3d &obj, int sm, int lm, bool B){
 	GLuint program = sh_ptrs[lm][sm];
 	glUseProgram(program);
@@ -508,7 +554,7 @@ void draw_obj(object_3d &obj, int sm, int lm, bool B){
 	glDisableVertexAttribArray(attribute_coord3d);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
-void draw_sphere(int li){
+void draw_sphere(int li, bool P){
 	GLuint program = ambientshader;
 	glUseProgram(program);
 	mat4 model, view, projection;
@@ -526,7 +572,8 @@ void draw_sphere(int li){
 	glUniformMatrix4fv(uniform_m, 1, GL_FALSE, value_ptr(model));
 	glUniformMatrix4fv(uniform_v, 1, GL_FALSE, value_ptr(view));
 	glUniformMatrix4fv(uniform_p, 1, GL_FALSE, value_ptr(projection));
-	glUniform4fv(uniform_lightamb[0], 1, value_ptr(lAmbient[li]));
+	if(!P) glUniform4fv(uniform_lightamb[0], 1, value_ptr(lAmbient[li]));
+	else glUniform4f(uniform_lightamb[0], obj_id_colors[li+8].x/255.0f, obj_id_colors[li+8].y/255.0f, obj_id_colors[li+8].z/255.0f, 1.0f);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_light_vertices);
 	glEnableVertexAttribArray(attribute_coord3d);
 	glVertexAttribPointer(
@@ -557,24 +604,69 @@ void display(){
 	spotcutoff[light] = spotcutoff[4];
 	spotexponent[light] = spotexponent[4];
 	l[light] = l[4];
-	for(int i=0; i<figures.size(); i++){
-		if(i==figure){
-			figures[i].scale = selected.scale;
-			figures[i].ambient = selected.ambient;
-			figures[i].diffuse = selected.diffuse;
-			figures[i].specular = selected.specular;
-			figures[i].shininess = selected.shininess;
-			figures[i].q = selected.q;
-			figures[i].s = selected.s; figures[i].r = selected.r;
-			figures[i].trans = selected.trans;
+	if(pick){
+		bool found = false;
+		for(int i=0; i<(int)figures.size(); i++){
+			if(i==figure){
+				figures[i].scale = selected.scale;
+				figures[i].ambient = selected.ambient;
+				figures[i].diffuse = selected.diffuse;
+				figures[i].specular = selected.specular;
+				figures[i].shininess = selected.shininess;
+				figures[i].q = selected.q;
+				figures[i].s = selected.s; figures[i].r = selected.r;
+				figures[i].trans = selected.trans;
+			}
+			draw_obj_picking(figures[i], i);
 		}
-		//printf("%d %d %d\n", i, figures[i].s, figures[i].r);
-		draw_obj(figures[i], figures[i].s, figures[i].r, i==figure);
+		for(int i=0; i<LMAX; i++) draw_sphere(i, pick);
+		unsigned char pixeld[4];
+		glReadPixels(click.first, click.second, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixeld);
+		int ID = pixeld[0]+pixeld[1]*256+pixeld[2]*256*256;
+		printf("%d\n", ID);
+		if(ID>0 && ID<figures.size()){
+			figure = ID-1;
+			selected.q = figures[figure].q; selected.trans = figures[figure].trans;
+			selected.ambient = figures[figure].ambient;
+			selected.diffuse = figures[figure].diffuse;
+			selected.specular = figures[figure].specular;
+			selected.shininess = figures[figure].shininess;
+			selected.scale = figures[figure].scale;
+			selected.s = figures[figure].s;
+			selected.r = figures[figure].r;
+		}else if(ID>=9 && ID<=12){
+			light = ID-9;
+			lPosition[4] = lPosition[light];
+			lAmbient[4] = lAmbient[light];
+			lDiffuse[4] = lDiffuse[light];
+			lSpecular[4] = lSpecular[light];
+			lDirection[4] = lDirection[light];
+			spotdirection[4] = spotdirection[light];
+			spotcutoff[4] = spotcutoff[light];
+			spotexponent[4] = spotexponent[light];
+			l[4] = l[light];
+		}	
+	}else{
+		for(int i=0; i<figures.size(); i++){
+			if(i==figure){
+				figures[i].scale = selected.scale;
+				figures[i].ambient = selected.ambient;
+				figures[i].diffuse = selected.diffuse;
+				figures[i].specular = selected.specular;
+				figures[i].shininess = selected.shininess;
+				figures[i].q = selected.q;
+				figures[i].s = selected.s; figures[i].r = selected.r;
+				figures[i].trans = selected.trans;
+			}
+			//printf("%d %d %d\n", i, figures[i].s, figures[i].r);
+			draw_obj(figures[i], figures[i].s, figures[i].r, i==figure);
+		}
+		for(int i=0; i<LMAX; i++) draw_sphere(i, false);
 	}
-	for(int i=0; i<LMAX; i++) draw_sphere(i);
 	//draw_floor();
 	TwDraw();
-	glutSwapBuffers();
+	if(!pick) glutSwapBuffers();
+	pick = false;
 	glutPostRedisplay();
 }
 void shaders(char* vs_name, char* fs_name, GLuint &program)
@@ -632,11 +724,12 @@ void init_shaders(){
 	sh_ptrs[2][0] = cookflat;
 	sh_ptrs[2][1] = cookgouraud;
 	sh_ptrs[2][2] = cookphong;
+	sh_ptrs[3][3] = ambientshader;
 }
 void data(){
-	object_3d A = object_3d("figure.obj"); /*F = object_3d("monkey.obj");*/
+	object_3d A = object_3d("figure.obj"), F = object_3d("monkey.obj");
 	figures.push_back(A);
-	//figures.push_back(F);
+	figures.push_back(F);
 	figures.push_back(object_3d("floor.obj"));
 	for(int i=0; i<figures.size(); i++){
 		figures[i].load_obj(figures[i].name.c_str());
@@ -755,6 +848,11 @@ void InitOpenGL()
 	hor_angle = ver_angle = 0.0f;
 	X = 0.0f; Y = 0.0f; Z = 1.0f;
 	figure = light = 0;
+	pick = false;
+	for(int i=1; i<=12; i++){
+		obj_id_colors[i-1] = i8vec3((i & 0x000000FF) >>  0,(i & 0x0000FF00) >>  8, (i & 0x00FF0000) >> 16);
+	}
+	click = make_pair(0,0);
 }
 vec3 orig_center_vision = vec3(0.0, 0.0, -4.0);
 void keyboard(unsigned char key, int x, int y){
@@ -843,65 +941,8 @@ void specialkeys(int key, int x, int y){
 }
 void mouseclick(int button, int state, int x, int y){
 	if(!TwEventMouseButtonGLUT(button, state, x, y) && state==0){
-		printf("%d %d\n", x, s_height-y);
-		y = s_height-y;
-		float X = (2.0f*x)/s_width-1.0;
-		float Y = (2.0f*y)/s_height-1.0;
-		float Z = 1.0;
-		mat4 model;
-		vec4 ray = vec4(X,Y,-Z, 1.0);
-		mat4 projection = perspective(45.0f, 1.0f*s_width/s_height, 1.0f, 30.0f);
-		vec4 ray_eye = inverse(projection)*ray;
-		ray_eye = vec4(ray_eye.x,ray_eye.y, -1.0, 0.0);
-		mat4 view = lookAt(camera_pos, camera_center, vec3(0,1,0));
-		vec3 ray_v = (inverse(view)*ray_eye).xyz;
-		printf("%f %f %f\n", ray_v.x, ray_v.y, ray_v.z);
-		ray_v = normalize(ray_v);
-		vec3 current_normal;
-		vec3 face[5];
-		int piv = -1; float fpiv = 1e10;
-		for(int i=0; i<figures.size()-1; i++){
-			int ind = 0;
-			model = translate(mat4(1.0), figures[i].trans);
-			model = translate(model, vec3(0.0,0.0,-4.0f));
-			model = model*toMat4(figures[i].q);
-			model = scale(model, vec3(figures[i].scale));
-			model = scale(model, vec3(2.0));
-			model = scale(model, vec3(1/figures[i].max_norm));
-			model = translate(model, -figures[i].centroid);
-			mat3 modelview = mat3(view*model); 
-			for(int j=4; j<8; j++){
-				face[ind%4] = figures[i].bounding_box[bounding_elements[j]];
-				ind++;
-				if(ind%4==0 && ind!=0){
-					current_normal = normalize(cross(modelview*face[1]-modelview*face[0], modelview*face[2]-modelview*face[0]));
-					vec3 c = (face[0]+face[1]+face[2]+face[3])*(1.0f/4.0f);
-					float offset = length(modelview*c-camera_pos);
-					if(dot(ray_v, current_normal)==0.0) continue;
-					float checking = -dot(camera_pos, current_normal)-offset;
-					checking /= dot(ray_v, current_normal);
-					printf("%f\n", checking);
-					if(checking<0.0) continue;
-
-					if(checking<fpiv){
-						fpiv = checking;
-						piv = i;
-						break;
-					}
-				}
-			}
-		}
-		if(piv!=-1){
-			figure = piv;
-			selected.q = figures[figure].q; selected.trans = figures[figure].trans;
-			selected.ambient = figures[figure].ambient;
-			selected.diffuse = figures[figure].diffuse;
-			selected.specular = figures[figure].specular;
-			selected.shininess = figures[figure].shininess;
-			selected.scale = figures[figure].scale;
-			selected.s = figures[figure].s;
-			selected.r = figures[figure].r;
-		}
+		click = make_pair(x, s_height-y);
+		pick = true;
 	}
 }
 int main(int argc, char* argv[])
@@ -910,6 +951,7 @@ int main(int argc, char* argv[])
 	TwBar* bar, *lightbar;
 	s_width = 800; s_height = 600;
 	glutInitWindowSize(s_width, s_height);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutCreateWindow("Mi ventana");
 	InitOpenGL();
 	TwGLUTModifiersFunc(glutGetModifiers);
